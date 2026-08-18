@@ -1,2 +1,174 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand colors */
+  --color-navy-950: #0a1830;
+  --color-navy-900: #0f2143;
+  --color-navy-800: #16305e;
+  --color-navy-700: #1f3f75;
+
+  --color-gold-600: #a6821c;
+  --color-gold-500: #c9a227;
+  --color-gold-400: #d9b84a;
+  --color-gold-300: #e8c766;
+  --color-gold-100: #f6ecc9;
+
+  --color-platinum-50: #fbfbfc;
+  --color-platinum-100: #f5f6f8;
+  --color-platinum-200: #e4e7ec;
+
+  --color-ink-900: #1b1f27;
+  --color-slate-500: #5b6472;
+
+  /* Fonts */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-platinum-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container-page {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-gold-500);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-gold {
+  background-color: var(--color-gold-500);
+  color: var(--color-navy-950);
+}
+.btn-gold:hover {
+  background-color: var(--color-gold-400);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-platinum-200);
+  color: var(--color-platinum-50);
+}
+.btn-outline:hover {
+  border-color: var(--color-gold-500);
+  color: var(--color-gold-300);
+}
+
+.btn-navy {
+  background-color: var(--color-navy-900);
+  color: var(--color-platinum-50);
+}
+.btn-navy:hover {
+  background-color: var(--color-navy-800);
+}
+
+/* Seal / credential badge — signature element */
+.seal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-gold-400);
+  background: radial-gradient(circle at 30% 30%, var(--color-navy-800), var(--color-navy-950));
+  color: var(--color-gold-300);
+  text-align: center;
+}
+.seal::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(201, 162, 39, 0.45);
+}
+.seal .seal-num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+.seal .seal-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-platinum-200);
+  margin-top: 0.15rem;
+  padding: 0 0.5rem;
+}
+
+/* Folder-tab style sub navigation (Services / Visa pages) */
+.tab-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--color-platinum-200);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  color: var(--color-slate-500);
+  background: var(--color-platinum-100);
+}
+.tab-link[data-active="true"] {
+  background: var(--color-platinum-50);
+  color: var(--color-navy-900);
+  border-color: var(--color-gold-400);
+  font-weight: 600;
+}
+
+.hairline {
+  border-color: var(--color-platinum-200);
+}
