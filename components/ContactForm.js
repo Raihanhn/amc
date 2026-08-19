@@ -1,6 +1,7 @@
 // components/ContactForm.js
 
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const INQUIRY_TYPES = [
   "B2B Staffing & Sourcing",
@@ -22,8 +23,9 @@ const initialState = {
 };
 
 export default function ContactForm() {
+  const router = useRouter();
   const [form, setForm] = useState(initialState);
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle"); // idle | loading | error
 
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -39,8 +41,9 @@ export default function ContactForm() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error("Request failed");
-      setStatus("success");
-      setForm(initialState);
+
+      // Success — redirect to the dedicated Thank You page
+      router.push("/thank-you");
     } catch (err) {
       setStatus("error");
     }
@@ -49,26 +52,6 @@ export default function ContactForm() {
   const inputClass =
     "w-full bg-white border border-platinum-200 rounded-sm px-4 py-3 text-sm text-ink-900 placeholder:text-slate-500/60 focus:outline-none focus:border-gold-400 transition-colors";
   const labelClass = "block text-xs font-mono uppercase tracking-wide text-slate-500 mb-2";
-
-  if (status === "success") {
-    return (
-      <div className="bg-white border border-gold-400 rounded-sm p-8 text-center">
-        <p className="eyebrow mb-3">Request Received</p>
-        <h3 className="text-xl text-ink-900 font-medium mb-2">
-          Thank you — your diagnostic intake has been submitted.
-        </h3>
-        <p className="text-sm text-slate-500">
-          Our team will reach out via your provided phone or email shortly.
-        </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-mono text-gold-600 underline"
-        >
-          Submit another inquiry
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="bg-white border border-platinum-200 rounded-sm p-6 md:p-8 space-y-5">
