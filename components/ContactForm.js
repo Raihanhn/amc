@@ -167,10 +167,10 @@ export default function ContactForm() {
         </p>
       )}
 
-            <button
+        <button
         type="submit"
         disabled={status === "loading"}
-        className="btn btn-gold w-full sm:w-auto disabled:opacity-60 relative"
+        className="btn btn-gold w-full sm:w-auto disabled:opacity-60 relative transition transform hover:scale-105 cursor-pointer"
       >
         {status === "loading" && (
           <svg
