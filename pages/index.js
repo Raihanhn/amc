@@ -57,10 +57,10 @@ export default function Home() {
               bespoke global trajectories for individuals and enterprises alike.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Button href="/contact-us" variant="gold">
+              <Button href="/contact-us" variant="gold" className="transition transform hover:scale-105" >
                 Request Consultation
               </Button>
-              <Button href="/our-services" variant="outline">
+              <Button href="/our-services" variant="outline" className="transition transform hover:scale-105">
                 Explore Services
               </Button>
             </div>
