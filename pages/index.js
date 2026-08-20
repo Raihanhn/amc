@@ -116,7 +116,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button href="/work-with-us" variant="navy" className="mt-8">
+              <Button href="/work-with-us" variant="navy" className="mt-8 transition transform hover:scale-105">
                 Corporate Solutions
               </Button>
             </div>
@@ -132,7 +132,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button href="/tourist-visa" variant="gold" className="mt-8">
+              <Button href="/tourist-visa" variant="gold" className="mt-8 transition transform hover:scale-105">
                 Explore Visa Pathways
               </Button>
             </div>
@@ -175,7 +175,7 @@ export default function Home() {
             Schedule a diagnostic consultation with our senior legal strategists today.
           </p>
           <div className="mt-8">
-            <Button href="/contact-us" variant="gold">
+            <Button href="/contact-us" variant="gold" className="transition transform hover:scale-105">
               Contact Asdaq Management Consultancy
             </Button>
           </div>
