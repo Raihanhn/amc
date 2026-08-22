@@ -27,7 +27,7 @@ export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
               key={item.title}
               onMouseEnter={() => setActive(i)}
               onClick={() => setActive(i)}
-              className="relative rounded-sm overflow-hidden transition-[flex-grow] duration-500 ease-out cursor-pointer min-h-[220px] sm:min-h-0"
+              className="relative rounded-[24px] overflow-hidden shadow-sm transition-[flex-grow] duration-500 ease-out cursor-pointer min-h-[220px] sm:min-h-0"
               style={{ flexGrow: isActive ? 2.2 : 1, flexBasis: 0 }}
             >
               {isActive ? (
