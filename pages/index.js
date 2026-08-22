@@ -3,6 +3,68 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import Seal from "@/components/Seal";
+import Ticker from "@/components/Ticker";
+import ShowcaseRow from "@/components/ShowcaseRow";
+
+const VISA_PATHWAYS = [
+  {
+    image: "https://picsum.photos/seed/amc-schengen/900/1000",
+    alt: "Schengen region cityscape",
+    title: "Schengen Region: 27 Nations, One Permit",
+    description:
+      "Multi-year, multiple-entry access across the Schengen bloc, processed under strict internal compliance — no third-party dependencies.",
+    ctaLabel: "Explore Schengen",
+    ctaHref: "/tourist-visa",
+  },
+  {
+    image: "https://picsum.photos/seed/amc-turkey/900/1000",
+    alt: "Turkey skyline",
+    title: "Turkey: Gateway Between Continents",
+    description:
+      "Streamlined tourist and transit visa processing with rapid turnaround for individuals and family groups.",
+    ctaLabel: "View Turkey Visa",
+    ctaHref: "/tourist-visa",
+  },
+  {
+    image: "https://picsum.photos/seed/amc-dubai-uae/900/1000",
+    alt: "Dubai skyline",
+    title: "Dubai, UAE: Your Regional Base",
+    description:
+      "Residency and tourist pathways into the Emirates, fully coordinated with our Dubai HQ legal desk.",
+    ctaLabel: "UAE Residency",
+    ctaHref: "/tourist-visa",
+  },
+];
+
+const SOURCING_REGIONS = [
+  {
+    image: "https://picsum.photos/seed/amc-serbia/900/1000",
+    alt: "Serbia city view",
+    title: "Serbia: Established Labor Corridor",
+    description:
+      "A mature sourcing pipeline for skilled and semi-skilled labor, backed by verified applicant networks.",
+    ctaLabel: "Serbia Sourcing",
+    ctaHref: "/work-visa",
+  },
+  {
+    image: "https://picsum.photos/seed/amc-portugal/900/1000",
+    alt: "Portugal coastline",
+    title: "Portugal: EU Work Authorization",
+    description:
+      "Structured legal pathways into Portuguese work permits, with full corporate registration support.",
+    ctaLabel: "Portugal Placement",
+    ctaHref: "/work-visa",
+  },
+  {
+    image: "https://picsum.photos/seed/amc-macedonia/900/1000",
+    alt: "North Macedonia landscape",
+    title: "North Macedonia: Emerging Access Point",
+    description:
+      "Newly opened sourcing routes with proactive execution of visa allocations and MOHRE-aligned approvals.",
+    ctaLabel: "Macedonia Sourcing",
+    ctaHref: "/work-visa",
+  },
+];
 
 const B2B_POINTS = [
   "Precision sourcing across highly skilled, semi-skilled, and industrial labor echelons",
@@ -42,10 +104,24 @@ const WHY_AMC = [
 export default function Home() {
   return (
     <Layout title="Home">
-      {/* HERO */}
-      <section className="bg-navy-950 relative overflow-hidden">
-        <div className="container-page py-20 md:py-28 grid lg:grid-cols-2 gap-14 items-center relative z-10">
-          <div>
+      {/* HERO — video background */}
+      <section className="relative bg-navy-950 overflow-hidden min-h-[88vh] flex items-center">
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://picsum.photos/seed/amc-hero-dubai/1600/1000"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* darken + left-to-right gradient so the text stays legible over any footage */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/92 via-navy-950/65 to-navy-950/25" />
+
+        <div className="container-page relative z-10 py-24 md:py-28">
+          <div className="max-w-2xl">
             <p className="eyebrow mb-5">Dubai HQ · Powered by Amigos Global</p>
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.08] text-platinum-50 font-medium">
               Bridging borders,{" "}
@@ -65,24 +141,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
 
-          <div className="relative">
-            <div className="relative rounded-sm overflow-hidden border border-navy-700 aspect-[4/5] md:aspect-[5/4]">
-              <Image
-                src="https://picsum.photos/seed/amc-hero-dubai/900/1000"
-                alt="Dubai business district"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/10 to-transparent" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden sm:block">
-              <Seal number="12+" label="Years Est. 2014" />
-            </div>
-          </div>
+        <div className="absolute bottom-8 right-6 md:right-14 z-10 hidden sm:block">
+          <Seal number="12+" label="Years Est. 2014" />
         </div>
       </section>
+
+      {/* TICKER — hover-fill destination strip */}
+      <Ticker />
 
       {/* CREDENTIAL STRIP */}
       <section className="bg-navy-900 border-y border-navy-800">
@@ -91,6 +158,20 @@ export default function Home() {
           <Seal number="35+" label="European Alliances" />
           <Seal number="100+" label="Sourcing Nodes" />
           <Seal number="4" label="Continents Served" />
+        </div>
+      </section>
+
+      {/* POPULAR VISA PATHWAYS — hover-reveal row */}
+      <section className="bg-platinum-50">
+        <div className="container-page py-20 md:py-24">
+          <ShowcaseRow eyebrowWord="Popular" boldWord="Pathways" items={VISA_PATHWAYS} />
+        </div>
+      </section>
+
+      {/* SOURCING REGIONS — hover-reveal row */}
+      <section className="bg-platinum-100 border-y border-platinum-200">
+        <div className="container-page py-20 md:py-24">
+          <ShowcaseRow eyebrowWord="Sourcing" boldWord="Regions" items={SOURCING_REGIONS} />
         </div>
       </section>
 
