@@ -1,7 +1,8 @@
 // components/Ticker.js
-// Infinite-scrolling text ticker. Each word is outlined by default and
-// fills solid gold on hover. Hovering the strip also pauses the scroll
-// so the visitor can actually read/interact with a word.
+// Two-line infinite ticker. Each word is outlined by default; as the
+// ticker keeps moving, whichever word is currently under the cursor
+// fills solid gold with a left-to-right wipe animation — the animation
+// never pauses, only the word under the pointer changes.
 
 const DEFAULT_ITEMS = [
   "Schengen Region",
@@ -18,19 +19,40 @@ const DEFAULT_ITEMS = [
   "Kazakhstan",
 ];
 
-export default function Ticker({ items = DEFAULT_ITEMS }) {
+function TickerRow({ items, reverse = false, slow = false }) {
   // duplicate the list once so translateX(-50%) loops seamlessly
   const loop = [...items, ...items];
+  const trackClass = [
+    "ticker-track",
+    reverse ? "ticker-track-reverse" : "",
+    slow ? "ticker-track-slow" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <div className="ticker-wrap bg-platinum-50 border-y border-platinum-200 py-8 md:py-10">
-      <div className="ticker-track">
-        {loop.map((word, i) => (
-          <span key={`${word}-${i}`} className="ticker-word">
+    <div className={trackClass}>
+      {loop.map((word, i) => (
+        <span className="ticker-word" key={`${word}-${i}`}>
+          {/* real text, always readable */}
+          <span className="ticker-word-outline">{word}</span>
+          {/* solid overlay, revealed left-to-right on hover */}
+          <span className="ticker-word-fill" aria-hidden="true">
             {word}
           </span>
-        ))}
-      </div>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default function Ticker({ items = DEFAULT_ITEMS, itemsRow2 }) {
+  const row2 = itemsRow2 || [...items].reverse();
+
+  return (
+    <div className="ticker-wrap bg-platinum-50 border-y border-platinum-200 py-6 md:py-8">
+      <TickerRow items={items} />
+      <TickerRow items={row2} reverse slow />
     </div>
   );
 }
