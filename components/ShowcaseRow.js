@@ -4,6 +4,28 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+// Parent controls the stagger timing between words.
+const headingContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+// Each word rises + fades in — the stagger above is what creates the "wave".
+const wordVariant = {
+  hidden: { opacity: 0, y: 34 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 /**
  * items: [{ image, alt, title, description, ctaLabel, ctaHref }] — exactly 3 items
@@ -14,10 +36,20 @@ export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-medium mb-10 md:mb-14 tracking-tight">
-        <span className="showcase-outline">{eyebrowWord}</span>{" "}
-        <span className="text-ink-900">{boldWord}</span>
-      </h2>
+      <motion.h2
+        className="text-3xl md:text-4xl font-medium mb-10 md:mb-14 tracking-tight"
+        variants={headingContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.7 }}
+      >
+        <motion.span variants={wordVariant} className="showcase-outline inline-block">
+          {eyebrowWord}
+        </motion.span>{" "}
+        <motion.span variants={wordVariant} className="text-ink-900 inline-block">
+          {boldWord}
+        </motion.span>
+      </motion.h2>
 
       <div className="flex flex-col sm:flex-row gap-4 md:gap-5 h-auto sm:h-[300px] md:h-[440px]">
         {items.map((item, i) => {
