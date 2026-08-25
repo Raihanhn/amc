@@ -33,9 +33,9 @@ export default function Footer() {
             </p>
           </div>
           <p className="text-sm leading-relaxed max-w-sm text-platinum-200/80">
-            Asdaq Management Consultancy — a Dubai-based, single-umbrella authority for
-            European immigration, corporate setup, and transnational workforce solutions.
-            Powered by Amigos Global.
+            Asdaq Management Consultancy — a Dubai-based, single-umbrella
+            authority for European immigration, corporate setup, and
+            transnational workforce solutions. Powered by Amigos Global.
           </p>
         </div>
 
@@ -44,7 +44,10 @@ export default function Footer() {
           <ul className="flex flex-col gap-2.5 text-sm">
             {explore.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-gold-300 transition-colors">
+                <Link
+                  href={l.href}
+                  className="hover:text-gold-300 transition-colors"
+                >
                   {l.label}
                 </Link>
               </li>
@@ -57,7 +60,10 @@ export default function Footer() {
           <ul className="flex flex-col gap-2.5 text-sm">
             {company.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-gold-300 transition-colors">
+                <Link
+                  href={l.href}
+                  className="hover:text-gold-300 transition-colors"
+                >
                   {l.label}
                 </Link>
               </li>
@@ -72,7 +78,10 @@ export default function Footer() {
               </a>
             </p>
             <p>
-              <a href="mailto:info@amc-dubai.com" className="hover:text-gold-300">
+              <a
+                href="mailto:info@amc-dubai.com"
+                className="hover:text-gold-300"
+              >
                 info@amc-dubai.com
               </a>
             </p>
@@ -82,8 +91,21 @@ export default function Footer() {
 
       <div className="border-t border-navy-800">
         <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-platinum-200/60">
-          <p>© {new Date().getFullYear()} Asdaq Management Consultancy (AMC Dubai). All rights reserved.</p>
-          <p className="font-mono tracking-wide">Powered by Amigos Global</p>
+          <p>
+            © {new Date().getFullYear()} Asdaq Management Consultancy (AMC
+            Dubai). All rights reserved.
+          </p>
+          <p className="font-mono tracking-wide">
+            Powered by Amigos Global · Built by{" "}
+            <a
+              href="https://weberspoint.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-300"
+            >
+              Weberspoint
+            </a>
+          </p>
         </div>
       </div>
     </footer>
