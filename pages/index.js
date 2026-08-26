@@ -197,7 +197,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button href="/work-with-us" variant="navy" className="mt-8 transition transform hover:scale-105">
+              <Button href="/work-with-us" variant="gold" className="mt-8 transition transform hover:scale-105">
                 Corporate Solutions
               </Button>
             </div>
