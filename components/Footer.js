@@ -17,8 +17,11 @@ const company = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 border-t border-navy-800 text-platinum-200">
-      <div className="container-page py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="relative overflow-hidden bg-navy-950 border-t border-navy-800 text-platinum-200">
+      <div className="footer-glow footer-glow--left" aria-hidden="true" />
+      <div className="footer-glow footer-glow--right" aria-hidden="true" />
+
+      <div className="container-page relative z-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <Image
@@ -89,7 +92,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-navy-800">
+      <div className="relative z-10 border-t border-navy-800">
         <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-platinum-200/60">
           <p>
             © {new Date().getFullYear()} Asdaq Management Consultancy (AMC
