@@ -96,9 +96,8 @@ export default function Header() {
 
         <Link
           href="/contact-us"
-          className="hidden lg:inline-flex btn btn-gold !py-2.5 !px-5 !text-sm transition transform hover:scale-105"
-          
-        >
+          className="!hidden lg:!inline-flex btn btn-gold !py-2.5 !px-5 !text-sm transition transform hover:scale-105"
+          >
           Get Consultation
         </Link>
 
