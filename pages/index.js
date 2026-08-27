@@ -222,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* WHY AMC */}
-      <section className="bg-platinum-100 border-y border-platinum-200">
+      <section className="bg-gold-100 border-y border-platinum-200">
         <div className="container-page py-20 md:py-28">
           <div className="max-w-2xl mb-14">
             <p className="eyebrow mb-4">The Institutional Advantage</p>
@@ -235,7 +235,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {WHY_AMC.map((item, i) => (
-              <div key={item.title} className="bg-white border border-platinum-200 p-6 rounded-sm">
+              <div key={item.title} className=" bg-white border border-platinum-200 p-6 rounded-sm">
                 <p className="font-mono text-xs text-gold-500 mb-3">0{i + 1}</p>
                 <h3 className="text-lg text-ink-900 font-medium mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">{item.body}</p>
