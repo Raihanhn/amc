@@ -99,12 +99,12 @@ export default function Footer() {
             Dubai). All rights reserved.
           </p>
           <p className="font-mono tracking-wide">
-            Powered by Amigos Global · Built by{" "}
+            Powered by Amigos Global · Developed by{" "}
             <a
               href="https://weberspoint.com"
               target="_blank"
               rel="noopener noreferrer"
-              className=" font-semibold text-white hover:text-gold-300"
+              className=" text-xs text-platinum-200/60 hover:text-gold-300"
             >
               Weberspoint
             </a>
