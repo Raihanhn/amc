@@ -18,8 +18,29 @@ const company = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-navy-950 border-t border-navy-800 text-platinum-200">
-      <div className="footer-glow footer-glow--left" aria-hidden="true" />
-      <div className="footer-glow footer-glow--right" aria-hidden="true" />
+      {/* <div className="footer-glow footer-glow--left" aria-hidden="true" />
+      <div className="footer-glow footer-glow--right" aria-hidden="true" /> */}
+
+      <svg
+  className="footer-glow-curve"
+  viewBox="0 0 1440 500"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+>
+  <path
+    d="M -50,320 C 250,420 650,460 950,380 C 1150,320 1300,150 1550,-40"
+    fill="none"
+    stroke="url(#footerGlowGradient)"
+    strokeWidth="140"
+    strokeLinecap="round"
+  />
+  <defs>
+    <linearGradient id="footerGlowGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="rgba(31,63,117,0.6)" />
+      <stop offset="100%" stopColor="rgba(31,63,117,0.15)" />
+    </linearGradient>
+  </defs>
+</svg>
 
       <div className="container-page relative z-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
