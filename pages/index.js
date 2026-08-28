@@ -222,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* WHY AMC */}
-      <section className="bg-gold-100 border-y border-platinum-200">
+      <section className=" bg-platinum-100 border-y border-platinum-200">
         <div className="container-page py-20 md:py-28">
           <div className="max-w-2xl mb-14">
             <p className="eyebrow mb-4">The Institutional Advantage</p>
