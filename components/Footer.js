@@ -125,7 +125,7 @@ export default function Footer() {
               href="https://weberspoint.com"
               target="_blank"
               rel="noopener noreferrer"
-              className=" text-xs text-platinum-200/60 hover:text-gold-300"
+              className=" text-xs font-semibold text-white hover:text-gold-300"
             >
               Weberspoint
             </a>
