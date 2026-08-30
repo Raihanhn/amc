@@ -43,7 +43,7 @@ export default function TouristVisa() {
         </div>
       </section>
 
-      <section className="bg-platinum-50">
+      <section id="schengen-visa" className="bg-platinum-50 scroll-mt-24">
         <div className="container-page py-16 md:py-24">
           <div className="max-w-2xl mb-12">
             <p className="eyebrow mb-4">Currently Serving</p>
@@ -83,7 +83,7 @@ export default function TouristVisa() {
       </section>
 
       {/* Canada Tourist Visa spotlight */}
-<section className="bg-platinum-50">
+<section id="canada-visa" className="bg-platinum-50 scroll-mt-24">
   <div className="container-page py-16 md:py-20">
     <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
       <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden order-2 md:order-1">
@@ -111,7 +111,7 @@ export default function TouristVisa() {
 </section>
 
 {/* Dubai Work & Tourist Visa spotlight */}
-<section className="bg-platinum-100 border-y border-platinum-200">
+<section id="dubai-visa" className="bg-platinum-100 border-y border-platinum-200 scroll-mt-24">
   <div className="container-page py-16 md:py-20">
     <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
       <div>
