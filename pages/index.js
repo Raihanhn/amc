@@ -8,7 +8,7 @@ import ShowcaseRow from "@/components/ShowcaseRow";
 
 const VISA_PATHWAYS = [
   {
-    image: "https://picsum.photos/seed/amc-schengen/900/1000",
+    image: "/images/visa/europe-work-permit.jpeg",
     alt: "Schengen region cityscape",
     title: "Schengen Region: 27 Nations, One Permit",
     description:
@@ -26,7 +26,7 @@ const VISA_PATHWAYS = [
     ctaHref: "/tourist-visa",
   },
   {
-    image: "https://picsum.photos/seed/amc-dubai-uae/900/1000",
+    image: "/images/visa/dubai-uae.jpeg",
     alt: "Dubai skyline",
     title: "Dubai, UAE: Your Regional Base",
     description:
