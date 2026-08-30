@@ -1,4 +1,5 @@
 // pages/work-with-us.js
+import Image from "next/image";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 
@@ -118,6 +119,103 @@ export default function WorkWithUs() {
           </div>
         </div>
       </section>
+
+      {/* Sourcing Regions — detailed workforce breakdown */}
+<section id="sourcing-regions" className="bg-platinum-100 border-y border-platinum-200">
+  <div className="container-page py-16 md:py-24">
+    <div className="max-w-2xl mb-14">
+      <p className="eyebrow mb-4">Global Talent Corridors</p>
+      <h2 className="text-3xl md:text-4xl text-ink-900 font-medium">
+        Sourcing regions we deploy from
+      </h2>
+      <p className="mt-4 text-slate-500 leading-relaxed">
+        We source, screen, and deploy reliable skilled, semi-skilled, and unskilled
+        workers across our established regional corridors, backed by verified local
+        networks and trusted associates.
+      </p>
+    </div>
+
+    <div className="space-y-16">
+      {/* Bangladesh */}
+      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
+          <Image src="/images/sourcing/bangladesh-workforce.jpg" alt="Bangladeshi workforce" fill className="object-cover" />
+        </div>
+        <div>
+          <p className="eyebrow mb-3">Sourcing Region 01</p>
+          <h3 className="text-2xl text-ink-900 font-medium mb-4">Bangladeshi Workforce</h3>
+          <p className="text-sm text-slate-500 leading-relaxed mb-4">
+            Bangladeshi workers hold an excellent reputation across Europe, the Gulf,
+            and Asian labor markets for dedication, adaptability, and a strong work
+            ethic. AMC is not just a recruitment agency — we are a tested deployment
+            partner with a proven track record on major international projects.
+          </p>
+          <ul className="space-y-2 text-sm text-slate-500">
+            <li><span className="text-gold-500 font-medium">Construction & Infrastructure —</span> laborers, masons, carpenters, steel fixers</li>
+            <li><span className="text-gold-500 font-medium">Hospitality & Services —</span> cleaners, facility management, kitchen helpers</li>
+            <li><span className="text-gold-500 font-medium">Manufacturing & Logistics —</span> factory workers, warehouse handlers, packers</li>
+            <li><span className="text-gold-500 font-medium">Agriculture & Farming —</span> skilled crop and livestock farm workers</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Nepal */}
+      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="order-2 md:order-1">
+          <p className="eyebrow mb-3">Sourcing Region 02</p>
+          <h3 className="text-2xl text-ink-900 font-medium mb-4">Nepali Workforce</h3>
+          <p className="text-sm text-slate-500 leading-relaxed mb-4">
+            Nepali workers have built a reputation across Europe, the Gulf, and Asian
+            labor markets for loyalty, honesty, discipline, and work ethic — widely
+            recognized as some of the most resilient professionals in the global
+            workforce.
+          </p>
+          <ul className="space-y-2 text-sm text-slate-500">
+            <li><span className="text-gold-500 font-medium">Security & Facilities —</span> disciplined guards, facility management staff</li>
+            <li><span className="text-gold-500 font-medium">Construction & Civil Engineering —</span> masons, shuttering carpenters, steel fixers</li>
+            <li><span className="text-gold-500 font-medium">Hospitality & Customer Service —</span> waiters, kitchen helpers, housekeepers</li>
+            <li><span className="text-gold-500 font-medium">Manufacturing, Logistics & Agriculture —</span> assembly line workers, drivers, farm personnel</li>
+          </ul>
+        </div>
+        <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden order-1 md:order-2">
+          <Image src="/images/sourcing/nepal-workforce.jpg" alt="Nepali workforce, Everest" fill className="object-cover" />
+        </div>
+      </div>
+
+      {/* Multi-National */}
+      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
+          <Image src="/images/sourcing/multinational-workforce.jpg" alt="Multi-national workforce team" fill className="object-cover" />
+        </div>
+        <div>
+          <p className="eyebrow mb-3">Sourcing Region 03</p>
+          <h3 className="text-2xl text-ink-900 font-medium mb-4">Multi-National Workforce</h3>
+          <p className="text-sm text-slate-500 leading-relaxed mb-4">
+            Successful projects require a diverse mix of talent, cultural adaptability,
+            and specialized skill sets. Through our expanding associate networks, we
+            offer access to skilled, semi-skilled, and unskilled workers from the
+            world's premier labor source markets.
+          </p>
+          <ul className="space-y-2 text-sm text-slate-500">
+            <li><span className="text-gold-500 font-medium">India —</span> technical engineering talent, construction specialists, corporate professionals</li>
+            <li><span className="text-gold-500 font-medium">Philippines —</span> English communication, healthcare, hospitality, customer service</li>
+            <li><span className="text-gold-500 font-medium">Sri Lanka —</span> manufacturing, apparel, hospitality, technical trades</li>
+            <li><span className="text-gold-500 font-medium">Africa —</span> logistics, security, heavy industries, large-scale agriculture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div className="mt-16 bg-navy-950 rounded-sm p-8 md:p-10 text-center">
+      <p className="text-platinum-50 font-medium text-lg mb-2">Partner with AMC — let's grow together</p>
+      <p className="text-platinum-200/75 text-sm max-w-xl mx-auto mb-6">
+        Global employers, main contractors, and recruitment agencies can rely on our
+        seamless, transparent, and legally compliant recruitment process.
+      </p>
+      <Button href="/contact-us" variant="gold">Discuss Your Workforce Needs</Button>
+    </div>
+  </div>
+</section>
 
       {/* Founder quote */}
       <section className="bg-platinum-100 border-y border-platinum-200">
