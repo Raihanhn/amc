@@ -1,9 +1,11 @@
 // pages/tourist-visa.js
+import Image from "next/image";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ServiceTabs from "@/components/ServiceTabs";
 
 const COUNTRIES = [
+  { name: "Canada", note: "Tourist Visa" },
   { name: "Schengen Region", note: "Tourist Visa" },
   { name: "Dubai, UAE", note: "Tourist Visa" },
   { name: "Armenia", note: "Tourist Visa" },
@@ -79,6 +81,62 @@ export default function TouristVisa() {
           </div>
         </div>
       </section>
+
+      {/* Canada Tourist Visa spotlight */}
+<section className="bg-platinum-50">
+  <div className="container-page py-16 md:py-20">
+    <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden order-2 md:order-1">
+        <Image src="/images/visa/canada-tourist.jpg" alt="Ottawa, Canada" fill className="object-cover" />
+      </div>
+      <div className="order-1 md:order-2">
+        <p className="eyebrow mb-4">Canada Tourist Visa</p>
+        <h2 className="text-3xl md:text-4xl text-ink-900 font-medium mb-5">
+          Turn your <span className="italic text-gold-500">Canada travel goals</span> into reality
+        </h2>
+        <p className="text-slate-500 leading-relaxed mb-4">
+          Canada is world-renowned for its breathtaking natural wonders, vibrant cities,
+          and rich cultural experiences. Whether you want to witness the majestic Niagara
+          Falls, explore the Rocky Mountains of Banff, or visit loved ones, AMC is here
+          to pave your way.
+        </p>
+        <p className="text-slate-500 leading-relaxed">
+          Getting your Canadian tourist or visitor visa doesn't have to be stressful.
+          While no agency can legally guarantee 100% approval, AMC's rigorous,
+          document-driven filing process delivers an exceptional visa success ratio.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Dubai Work & Tourist Visa spotlight */}
+<section className="bg-platinum-100 border-y border-platinum-200">
+  <div className="container-page py-16 md:py-20">
+    <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div>
+        <p className="eyebrow mb-4">Dubai Work & Tourist Visa</p>
+        <h2 className="text-3xl md:text-4xl text-ink-900 font-medium mb-5">
+          Live, work, and innovate in <span className="italic text-gold-500">Dubai</span>
+        </h2>
+        <p className="text-slate-500 leading-relaxed mb-4">
+          Often compared to Manhattan and major US megacities, Dubai is the city that
+          never sleeps — a dynamic world hub where modern innovation meets endless
+          opportunity. From the iconic Burj Khalifa to booming corporate districts,
+          Dubai is the planet's favourite destination for holidays, careers, and
+          groundbreaking business ventures.
+        </p>
+        <p className="text-slate-500 leading-relaxed">
+          Whether you want to launch a company, land your dream job, or experience a
+          luxury vacation, AMC is your trusted gateway to the United Arab Emirates.
+        </p>
+      </div>
+      <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
+        <Image src="/images/visa/dubai-uae.jpg" alt="Dubai skyline and UAE flag" fill className="object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="bg-platinum-100 border-t border-platinum-200">
         <div className="container-page py-20 text-center">
