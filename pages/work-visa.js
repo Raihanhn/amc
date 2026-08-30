@@ -59,7 +59,7 @@ export default function WorkVisa() {
                 </p>
               </div>
               <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
-                <Image src="/images/visa/europe-work-permit.jpg" alt="European work permit destinations" fill className="object-cover" />
+                <Image src="/images/visa/europe-work-permit.jpeg" alt="European work permit destinations" fill className="object-cover" />
               </div>
             </div>
           </div>

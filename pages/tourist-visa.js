@@ -87,7 +87,7 @@ export default function TouristVisa() {
   <div className="container-page py-16 md:py-20">
     <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
       <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden order-2 md:order-1">
-        <Image src="/images/visa/canada-tourist.jpg" alt="Ottawa, Canada" fill className="object-cover" />
+        <Image src="/images/visa/canada-tourist.jpeg" alt="Ottawa, Canada" fill className="object-cover" />
       </div>
       <div className="order-1 md:order-2">
         <p className="eyebrow mb-4">Canada Tourist Visa</p>
@@ -132,7 +132,7 @@ export default function TouristVisa() {
         </p>
       </div>
       <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
-        <Image src="/images/visa/dubai-uae.jpg" alt="Dubai skyline and UAE flag" fill className="object-cover" />
+        <Image src="/images/visa/dubai-uae.jpeg" alt="Dubai skyline and UAE flag" fill className="object-cover" />
       </div>
     </div>
   </div>

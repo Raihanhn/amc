@@ -16,13 +16,13 @@ const VISA_PATHWAYS = [
     ctaLabel: "Explore Schengen",
     ctaHref: "/tourist-visa",
   },
-  {
-    image: "https://picsum.photos/seed/amc-turkey/900/1000",
-    alt: "Turkey skyline",
-    title: "Turkey: Gateway Between Continents",
+    {
+    image: "/images/visa/canada-tourist.jpeg",
+    alt: "Ottawa, Canada",
+    title: "Canada: Tourist & Visitor Visa",
     description:
-      "Streamlined tourist and transit visa processing with rapid turnaround for individuals and family groups.",
-    ctaLabel: "View Turkey Visa",
+      "Document-driven filing with an exceptional success ratio — Niagara Falls, Banff, and family visits made simple.",
+    ctaLabel: "Explore Canada Visa",
     ctaHref: "/tourist-visa",
   },
   {
@@ -37,17 +37,17 @@ const VISA_PATHWAYS = [
 ];
 
 const SOURCING_REGIONS = [
-  {
-    image: "https://picsum.photos/seed/amc-serbia/900/1000",
-    alt: "Serbia city view",
-    title: "Serbia: Established Labor Corridor",
+    {
+    image: "/images/sourcing/nepal-workforce.jpeg",
+    alt: "Nepali workforce, Everest",
+    title: "Nepal: Loyalty & Discipline",
     description:
-      "A mature sourcing pipeline for skilled and semi-skilled labor, backed by verified applicant networks.",
-    ctaLabel: "Serbia Sourcing",
-    ctaHref: "/work-visa",
+      "A resilient, highly disciplined workforce trusted across security, construction, hospitality, and manufacturing sectors.",
+    ctaLabel: "Nepal Sourcing",
+    ctaHref: "/work-with-us#sourcing-regions",
   },
   {
-    image: "/images/sourcing/bangladesh-workforce.jpg",
+    image: "/images/sourcing/bangladesh-workforce.jpeg",
     alt: "Bangladeshi workforce",
     title: "Bangladesh: Trusted Deployment Partner",
     description:
@@ -56,7 +56,7 @@ const SOURCING_REGIONS = [
     ctaHref: "/work-with-us#sourcing-regions",
   },
   {
-    image: "/images/sourcing/multinational-workforce.jpg",
+    image: "/images/sourcing/multinational-workforce.jpeg",
     alt: "Multi-national workforce",
     title: "Multi-National: One-Stop Talent Access",
     description:

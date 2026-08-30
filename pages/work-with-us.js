@@ -139,7 +139,7 @@ export default function WorkWithUs() {
       {/* Bangladesh */}
       <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
         <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
-          <Image src="/images/sourcing/bangladesh-workforce.jpg" alt="Bangladeshi workforce" fill className="object-cover" />
+          <Image src="/images/sourcing/bangladesh-workforce.jpeg" alt="Bangladeshi workforce" fill className="object-cover" />
         </div>
         <div>
           <p className="eyebrow mb-3">Sourcing Region 01</p>
@@ -178,14 +178,14 @@ export default function WorkWithUs() {
           </ul>
         </div>
         <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden order-1 md:order-2">
-          <Image src="/images/sourcing/nepal-workforce.jpg" alt="Nepali workforce, Everest" fill className="object-cover" />
+          <Image src="/images/sourcing/nepal-workforce.jpeg" alt="Nepali workforce, Everest" fill className="object-cover" />
         </div>
       </div>
 
       {/* Multi-National */}
       <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
         <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
-          <Image src="/images/sourcing/multinational-workforce.jpg" alt="Multi-national workforce team" fill className="object-cover" />
+          <Image src="/images/sourcing/multinational-workforce.jpeg" alt="Multi-national workforce team" fill className="object-cover" />
         </div>
         <div>
           <p className="eyebrow mb-3">Sourcing Region 03</p>
