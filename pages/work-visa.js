@@ -1,4 +1,5 @@
 // pages/work-visa.js
+import Image from "next/image";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ServiceTabs from "@/components/ServiceTabs";
@@ -9,6 +10,11 @@ const WORK_VISA_COUNTRIES = [
   { num: "03", name: "Moldova", status: "Currently Running" },
   { num: "04", name: "Belarus", status: "Currently Running" },
   { num: "05", name: "Portugal", status: "Currently Running" },
+  { num: "06", name: "Malta", status: "Currently Running" },
+  { num: "07", name: "Poland", status: "Currently Running" },
+  { num: "08", name: "Greece", status: "Currently Running" },
+  { num: "09", name: "Estonia", status: "Currently Running" },
+  { num: "10", name: "Slovakia", status: "Currently Running" },
 ];
 
 export default function WorkVisa() {
@@ -31,11 +37,33 @@ export default function WorkVisa() {
         </div>
       </section>
 
-      <section className="bg-platinum-50 border-b border-platinum-200">
-        <div className="container-page pt-8">
-          <ServiceTabs />
-        </div>
-      </section>
+      {/* Work Permit Visa (Schengen & EU) intro */}
+        <section className="bg-platinum-50 border-b border-platinum-200">
+          <div className="container-page py-16 md:py-20">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+              <div>
+                <p className="eyebrow mb-4">For Asian Applicants</p>
+                <h2 className="text-3xl md:text-4xl text-ink-900 font-medium mb-5">
+                  Work Permit Visa <span className="italic text-gold-500">(Schengen & EU)</span>
+                </h2>
+                <p className="text-slate-500 leading-relaxed mb-4">
+                  Looking for reliable work opportunities in Europe? At AMC, we provide
+                  hassle-free pathways to official Schengen & European Union work permits,
+                  specifically for applicants from Asia.
+                </p>
+                <p className="text-slate-500 leading-relaxed">
+                  Europe is currently facing a massive shortage of unskilled and semi-skilled
+                  workers. We've built powerful corporate connections and a dedicated team of
+                  expert immigration lawyers, liaising directly with verified companies across
+                  Europe to secure your employment and visa smoothly.
+                </p>
+              </div>
+              <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
+                <Image src="/images/visa/europe-work-permit.jpg" alt="European work permit destinations" fill className="object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
 
       <section className="bg-platinum-50">
         <div className="container-page py-16 md:py-24">
