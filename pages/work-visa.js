@@ -65,7 +65,7 @@ export default function WorkVisa() {
           </div>
         </section>
 
-      <section className="bg-platinum-50">
+      <section id="work-corridors" className="bg-platinum-50 scroll-mt-24">
         <div className="container-page py-16 md:py-24">
           <div className="max-w-2xl mb-12">
             <p className="eyebrow mb-4">Active Right Now</p>
