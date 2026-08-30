@@ -47,22 +47,22 @@ const SOURCING_REGIONS = [
     ctaHref: "/work-visa",
   },
   {
-    image: "https://picsum.photos/seed/amc-portugal/900/1000",
-    alt: "Portugal coastline",
-    title: "Portugal: EU Work Authorization",
+    image: "/images/sourcing/bangladesh-workforce.jpg",
+    alt: "Bangladeshi workforce",
+    title: "Bangladesh: Trusted Deployment Partner",
     description:
-      "Structured legal pathways into Portuguese work permits, with full corporate registration support.",
-    ctaLabel: "Portugal Placement",
-    ctaHref: "/work-visa",
+      "Reliable skilled and semi-skilled labor across construction, hospitality, manufacturing, and agriculture.",
+    ctaLabel: "Bangladesh Sourcing",
+    ctaHref: "/work-with-us#sourcing-regions",
   },
   {
-    image: "https://picsum.photos/seed/amc-macedonia/900/1000",
-    alt: "North Macedonia landscape",
-    title: "North Macedonia: Emerging Access Point",
+    image: "/images/sourcing/multinational-workforce.jpg",
+    alt: "Multi-national workforce",
+    title: "Multi-National: One-Stop Talent Access",
     description:
-      "Newly opened sourcing routes with proactive execution of visa allocations and MOHRE-aligned approvals.",
-    ctaLabel: "Macedonia Sourcing",
-    ctaHref: "/work-visa",
+      "Diverse, vetted talent from India, the Philippines, Sri Lanka, and Africa — matched to your project needs.",
+    ctaLabel: "Global Sourcing",
+    ctaHref: "/work-with-us#sourcing-regions",
   },
 ];
 
