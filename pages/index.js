@@ -14,7 +14,7 @@ const VISA_PATHWAYS = [
     description:
       "Multi-year, multiple-entry access across the Schengen bloc, processed under strict internal compliance — no third-party dependencies.",
     ctaLabel: "Explore Schengen",
-    ctaHref: "/tourist-visa",
+    ctaHref: "/tourist-visa#schengen-visa",
   },
     {
     image: "/images/visa/canada-tourist.jpeg",
@@ -23,7 +23,7 @@ const VISA_PATHWAYS = [
     description:
       "Document-driven filing with an exceptional success ratio — Niagara Falls, Banff, and family visits made simple.",
     ctaLabel: "Explore Canada Visa",
-    ctaHref: "/tourist-visa",
+    ctaHref: "/tourist-visa#canada-visa",
   },
   {
     image: "/images/visa/dubai-uae.jpeg",
@@ -32,7 +32,7 @@ const VISA_PATHWAYS = [
     description:
       "Residency and tourist pathways into the Emirates, fully coordinated with our Dubai HQ legal desk.",
     ctaLabel: "UAE Residency",
-    ctaHref: "/tourist-visa",
+    ctaHref: "/tourist-visa#dubai-visa",
   },
 ];
 
