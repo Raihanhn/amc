@@ -137,7 +137,7 @@ export default function WorkWithUs() {
 
     <div className="space-y-16">
       {/* Bangladesh */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div id="bangladesh-workforce" className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-24">
         <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
           <Image src="/images/sourcing/bangladesh-workforce.jpeg" alt="Bangladeshi workforce" fill className="object-cover" />
         </div>
@@ -160,7 +160,7 @@ export default function WorkWithUs() {
       </div>
 
       {/* Nepal */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div id="nepal-workforce" className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-24">
         <div className="order-2 md:order-1">
           <p className="eyebrow mb-3">Sourcing Region 02</p>
           <h3 className="text-2xl text-ink-900 font-medium mb-4">Nepali Workforce</h3>
@@ -183,7 +183,7 @@ export default function WorkWithUs() {
       </div>
 
       {/* Multi-National */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+      <div id="multinational-workforce" className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-24">
         <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden">
           <Image src="/images/sourcing/multinational-workforce.jpeg" alt="Multi-national workforce team" fill className="object-cover" />
         </div>
