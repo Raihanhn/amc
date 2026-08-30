@@ -38,7 +38,7 @@ export default function WorkVisa() {
       </section>
 
       {/* Work Permit Visa (Schengen & EU) intro */}
-        <section className="bg-platinum-50 border-b border-platinum-200">
+        <section id="schengen-visa" className="bg-platinum-50 border-b border-platinum-200 scroll-mt-24">
           <div className="container-page py-16 md:py-20">
             <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
               <div>

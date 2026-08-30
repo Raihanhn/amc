@@ -43,7 +43,7 @@ export default function TouristVisa() {
         </div>
       </section>
 
-      <section id="schengen-visa" className="bg-platinum-50 scroll-mt-24">
+      <section className="bg-platinum-50">
         <div className="container-page py-16 md:py-24">
           <div className="max-w-2xl mb-12">
             <p className="eyebrow mb-4">Currently Serving</p>

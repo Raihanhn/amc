@@ -14,7 +14,7 @@ const VISA_PATHWAYS = [
     description:
       "Multi-year, multiple-entry access across the Schengen bloc, processed under strict internal compliance — no third-party dependencies.",
     ctaLabel: "Explore Schengen",
-    ctaHref: "/tourist-visa#schengen-visa",
+    ctaHref: "/work-visa#schengen-visa",
   },
     {
     image: "/images/visa/canada-tourist.jpeg",
@@ -44,7 +44,7 @@ const SOURCING_REGIONS = [
     description:
       "A resilient, highly disciplined workforce trusted across security, construction, hospitality, and manufacturing sectors.",
     ctaLabel: "Nepal Sourcing",
-    ctaHref: "/work-with-us#sourcing-regions",
+    ctaHref: "/work-with-us#nepal-workforce",
   },
   {
     image: "/images/sourcing/bangladesh-workforce.jpeg",
@@ -53,7 +53,7 @@ const SOURCING_REGIONS = [
     description:
       "Reliable skilled and semi-skilled labor across construction, hospitality, manufacturing, and agriculture.",
     ctaLabel: "Bangladesh Sourcing",
-    ctaHref: "/work-with-us#sourcing-regions",
+    ctaHref: "/work-with-us#bangladesh-workforce",
   },
   {
     image: "/images/sourcing/multinational-workforce.jpeg",
@@ -62,7 +62,7 @@ const SOURCING_REGIONS = [
     description:
       "Diverse, vetted talent from India, the Philippines, Sri Lanka, and Africa — matched to your project needs.",
     ctaLabel: "Global Sourcing",
-    ctaHref: "/work-with-us#sourcing-regions",
+    ctaHref: "/work-with-us#multinational-workforce",
   },
 ];
 
