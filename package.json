@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "seed:countries": "node scripts/seedCountries.js",
+    "hash:password": "node scripts/hashPassword.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
