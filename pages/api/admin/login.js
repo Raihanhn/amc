@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   console.log("Received username:", JSON.stringify(username), "length:", username.length);
   console.log("Received password:", JSON.stringify(password), "length:", password.length);
   console.log("Env ADMIN_USERNAME:", JSON.stringify(ADMIN_USERNAME), "length:", ADMIN_USERNAME?.length);
-  console.log("Env ADMIN_PASSWORD_HASH:", JSON.stringify(ADMIN_PASSWORD_HASH));
+  console.log("Env ADMIN_PASSWORD_HASH:", JSON.stringify(ADMIN_PASSWORD_HASH));  
   console.log("===================");
 
   if (!ADMIN_USERNAME || !ADMIN_PASSWORD_HASH) {
