@@ -3,22 +3,41 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ServiceTabs from "@/components/ServiceTabs";
+import connectDB from "@/lib/mongodb";
+import Country from "@/models/Country";
 
-const COUNTRIES = [
-  { name: "Canada", note: "Tourist Visa" },
-  { name: "Schengen Region", note: "Tourist Visa" },
-  { name: "Dubai, UAE", note: "Tourist Visa" },
-  { name: "Armenia", note: "Tourist Visa" },
-  { name: "Russia", note: "Tourist Visa" },
-  { name: "Turkey", note: "Tourist Visa" },
-  { name: "Belarus", note: "Tourist Visa" },
-  { name: "Uzbekistan", note: "Tourist Visa" },
-  { name: "Kazakhstan", note: "Tourist Visa" },
-  { name: "Saudi Arabia", note: "Tourist Visa" },
-  { name: "African Region", note: "Select Countries" },
+const FALLBACK_COUNTRIES = [
+  { _id: "fallback-1", name: "Canada", note: "Tourist Visa" },
+  { _id: "fallback-2", name: "Schengen Region", note: "Tourist Visa" },
+  { _id: "fallback-3", name: "Dubai, UAE", note: "Tourist Visa" },
+  { _id: "fallback-4", name: "Armenia", note: "Tourist Visa" },
+  { _id: "fallback-5", name: "Russia", note: "Tourist Visa" },
+  { _id: "fallback-6", name: "Turkey", note: "Tourist Visa" },
+  { _id: "fallback-7", name: "Belarus", note: "Tourist Visa" },
+  { _id: "fallback-8", name: "Uzbekistan", note: "Tourist Visa" },
+  { _id: "fallback-9", name: "Kazakhstan", note: "Tourist Visa" },
+  { _id: "fallback-10", name: "Saudi Arabia", note: "Tourist Visa" },
+  { _id: "fallback-11", name: "African Region", note: "Select Countries" },
 ];
 
-export default function TouristVisa() {
+export async function getServerSideProps() {
+  try {
+    await connectDB();
+    const docs = await Country.find({ type: "tourist" })
+      .sort({ order: 1, createdAt: 1 })
+      .lean();
+    const countries = docs.length
+      ? docs.map((c) => ({ _id: String(c._id), name: c.name, note: c.note }))
+      : FALLBACK_COUNTRIES;
+    return { props: { countries } };
+  } catch (err) {
+    console.error("Failed to load tourist countries:", err);
+    return { props: { countries: FALLBACK_COUNTRIES } };
+  }
+}
+
+
+export default function TouristVisa({ countries }) {
   return (
     <Layout
       title="Tourist Visa"
@@ -58,9 +77,9 @@ export default function TouristVisa() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {COUNTRIES.map((c) => (
+            {countries.map((c) => (
               <div
-                key={c.name}
+                key={c._id}
                 className="bg-white border border-platinum-200 rounded-sm p-5 hover:border-gold-400 transition-colors"
               >
                 <p className="text-ink-900 font-medium leading-snug">{c.name}</p>
