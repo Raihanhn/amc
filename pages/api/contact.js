@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import connectDB from "@/lib/mongodb";
+import Submission from "@/models/Submission";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -18,6 +20,24 @@ export default async function handler(req, res) {
 
   if (!fullName || !email || !phone || !country || !inquiryType) {
     return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  try {
+    await connectDB();
+    await Submission.create({
+      fullName,
+      email,
+      phone,
+      country,
+      inquiryType,
+      nationality,
+      timeline,
+      notes,
+    });
+  } catch (err) {
+    // Don't block the user's submission if the DB write fails — but do log it
+    // loudly, since this means the lead won't show up in the admin panel.
+    console.error("Failed to save submission to MongoDB:", err);
   }
 
   try {
