@@ -6,8 +6,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 const NAV_ITEMS = [
-  { href: "/admin", label: "Submissions", icon: "inbox" },
+  { href: "/", label: "Home", icon: "home" },
   { href: "/admin/countries", label: "Countries", icon: "globe" },
+  { href: "/admin", label: "Submissions", icon: "inbox" },
 ];
 
 function Icon({ name, className }) {
@@ -27,6 +28,16 @@ function Icon({ name, className }) {
       </svg>
     );
   }
+
+    if (name === "home") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
+        <path d="M4 11.5L12 4l8 7.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 10v9.5a1 1 0 001 1h10a1 1 0 001-1V10" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
   if (name === "logout") {
     return (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
@@ -56,8 +67,10 @@ export default function AdminLayout({ children, title }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
 
-  const isActive = (href) =>
-    href === "/admin" ? router.pathname === "/admin" : router.pathname.startsWith(href);
+    const isActive = (href) =>
+    href === "/admin" || href === "/"
+      ? router.pathname === href
+      : router.pathname.startsWith(href);
 
   const handleLogout = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
@@ -66,7 +79,10 @@ export default function AdminLayout({ children, title }) {
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
-      <div className="flex items-center gap-3 px-5 py-6 border-b border-navy-800">
+           <Link
+        href="/"
+        className="flex items-center gap-3 px-5 py-6 border-b border-navy-800 hover:bg-navy-900 transition-colors"
+      >
         <Image
           src="/logo-amc-dubai.jpeg"
           alt="AMC Dubai"
@@ -80,7 +96,7 @@ export default function AdminLayout({ children, title }) {
           </p>
           <p className="eyebrow !text-[9px] !text-gold-300">Admin Panel</p>
         </div>
-      </div>
+      </Link>
 
       <nav className="flex-1 px-3 py-5 space-y-1">
         {NAV_ITEMS.map((item) => (
