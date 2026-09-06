@@ -9,6 +9,7 @@ export default function AdminLogin() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -82,15 +83,43 @@ export default function AdminLogin() {
               <label className="block text-xs font-mono uppercase tracking-wide text-platinum-200/70 mb-2">
                 Password
               </label>
-              <input
-                required
-                type="password"
-                name="password"
-                value={form.password}
-                onChange={handleChange}
-                className="w-full bg-navy-950 border border-navy-700 rounded-sm px-4 py-3 text-sm text-platinum-50 placeholder:text-platinum-200/30 focus:outline-none focus:border-gold-400 transition-colors"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  required
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={form.password}
+                  onChange={handleChange}
+                  className="w-full bg-navy-950 border border-navy-700 rounded-sm px-4 py-3 pr-11 text-sm text-platinum-50 placeholder:text-platinum-200/30 focus:outline-none focus:border-gold-400 transition-colors"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute right-0 top-0 h-full w-11 flex items-center justify-center text-platinum-200/50 hover:text-gold-300 transition-colors cursor-pointer"
+                >
+                  {showPassword ? (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-5 h-5">
+                      <path d="M3 3l18 18" strokeLinecap="round" />
+                      <path
+                        d="M10.6 10.6a2.5 2.5 0 003.5 3.5M6.5 6.7C4.3 8.1 2.7 10 2 12c1.6 3.9 5.5 7 10 7 1.6 0 3.1-.4 4.5-1.1M9.8 4.3A10.9 10.9 0 0112 4c4.5 0 8.4 3.1 10 7-.5 1.3-1.3 2.6-2.3 3.7"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-5 h-5">
+                      <path
+                        d="M2 12c1.6-3.9 5.5-7 10-7s8.4 3.1 10 7c-1.6 3.9-5.5 7-10 7s-8.4-3.1-10-7z"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
             {error && <p className="text-sm text-red-400">{error}</p>}
