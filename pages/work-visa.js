@@ -3,21 +3,39 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import Button from "@/components/Button";
 import ServiceTabs from "@/components/ServiceTabs";
+import connectDB from "@/lib/mongodb";
+import Country from "@/models/Country";
 
-const WORK_VISA_COUNTRIES = [
-  { num: "01", name: "Serbia", status: "Currently Running" },
-  { num: "02", name: "North Macedonia", status: "Currently Running" },
-  { num: "03", name: "Moldova", status: "Currently Running" },
-  { num: "04", name: "Belarus", status: "Currently Running" },
-  { num: "05", name: "Portugal", status: "Currently Running" },
-  { num: "06", name: "Malta", status: "Currently Running" },
-  { num: "07", name: "Poland", status: "Currently Running" },
-  { num: "08", name: "Greece", status: "Currently Running" },
-  { num: "09", name: "Estonia", status: "Currently Running" },
-  { num: "10", name: "Slovakia", status: "Currently Running" },
+const FALLBACK_COUNTRIES = [
+  { _id: "fallback-1", name: "Serbia" },
+  { _id: "fallback-2", name: "North Macedonia" },
+  { _id: "fallback-3", name: "Moldova" },
+  { _id: "fallback-4", name: "Belarus" },
+  { _id: "fallback-5", name: "Portugal" },
+  { _id: "fallback-6", name: "Malta" },
+  { _id: "fallback-7", name: "Poland" },
+  { _id: "fallback-8", name: "Greece" },
+  { _id: "fallback-9", name: "Estonia" },
+  { _id: "fallback-10", name: "Slovakia" },
 ];
 
-export default function WorkVisa() {
+export async function getServerSideProps() {
+  try {
+    await connectDB();
+    const docs = await Country.find({ type: "work" })
+      .sort({ order: 1, createdAt: 1 })
+      .lean();
+    const countries = docs.length
+      ? docs.map((c) => ({ _id: String(c._id), name: c.name }))
+      : FALLBACK_COUNTRIES;
+    return { props: { countries } };
+  } catch (err) {
+    console.error("Failed to load work visa countries:", err);
+    return { props: { countries: FALLBACK_COUNTRIES } };
+  }
+}
+
+export default function WorkVisa({ countries }) {
   return (
     <Layout
       title="Work Visa"
@@ -80,13 +98,15 @@ export default function WorkVisa() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {WORK_VISA_COUNTRIES.map((c) => (
+            {countries.map((c, i) => (
               <div
-                key={c.name}
+                key={c._id}
                 className="bg-white border border-platinum-200 rounded-sm p-6 flex items-start justify-between gap-4"
               >
                 <div>
-                  <p className="font-mono text-xs text-gold-500 mb-2">{c.num}</p>
+                  <p className="font-mono text-xs text-gold-500 mb-2">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
                   <h3 className="text-lg text-ink-900 font-medium">{c.name}</h3>
                 </div>
                 <span className="shrink-0 mt-1 inline-flex items-center gap-1.5 text-xs font-mono text-navy-800 bg-gold-100 px-2.5 py-1 rounded-full">
