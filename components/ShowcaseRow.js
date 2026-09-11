@@ -4,7 +4,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+// How far (px) a drag must travel before we treat it as a swipe to the next/prev slide.
+const SWIPE_THRESHOLD = 50;
+
+const slideVariants = {
+  enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
+};
 
 // Parent controls the stagger timing between words.
 const headingContainer = {
@@ -33,6 +42,12 @@ const wordVariant = {
  */
 export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const goTo = (i) => {
+    setDirection(i > active ? 1 : -1);
+    setActive(i);
+  };
 
   return (
     <div>
@@ -51,7 +66,8 @@ export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
         </motion.span>
       </motion.h2>
 
-      <div className="flex flex-col sm:flex-row gap-4 md:gap-5 h-auto sm:h-[300px] md:h-[440px]">
+      {/* Desktop / tablet — hover-to-grow row (unchanged) */}
+      <div className="hidden sm:flex gap-4 md:gap-5 h-[300px] md:h-[440px]">
         {items.map((item, i) => {
           const isActive = i === active;
           return (
@@ -59,7 +75,7 @@ export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
               key={item.title}
               onMouseEnter={() => setActive(i)}
               onClick={() => setActive(i)}
-              className="relative rounded-[24px] overflow-hidden shadow-sm transition-[flex-grow] duration-500 ease-out cursor-pointer min-h-[220px] sm:min-h-0"
+              className="relative rounded-[24px] overflow-hidden shadow-sm transition-[flex-grow] duration-500 ease-out cursor-pointer"
               style={{ flexGrow: isActive ? 2.2 : 1, flexBasis: 0 }}
             >
               {isActive ? (
@@ -98,6 +114,79 @@ export default function ShowcaseRow({ eyebrowWord, boldWord, items }) {
             </div>
           );
         })}
+      </div>
+
+      {/* Mobile — swipeable slider, same expanded-card design for every slide */}
+      <div className="sm:hidden">
+        <div className="relative overflow-hidden rounded-[24px]">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={active}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.8}
+              onDragEnd={(_, info) => {
+                if (info.offset.x < -SWIPE_THRESHOLD && active < items.length - 1) {
+                  setDirection(1);
+                  setActive((a) => a + 1);
+                } else if (info.offset.x > SWIPE_THRESHOLD && active > 0) {
+                  setDirection(-1);
+                  setActive((a) => a - 1);
+                }
+              }}
+              className="flex flex-col rounded-[24px] overflow-hidden shadow-sm bg-white border border-platinum-200 cursor-grab active:cursor-grabbing"
+            >
+              <div className="relative w-full h-48">
+                <Image
+                  src={items[active].image}
+                  alt={items[active].alt}
+                  fill
+                  className="object-cover pointer-events-none"
+                  draggable={false}
+                />
+                <span className="absolute bottom-4 right-5 font-mono text-xs text-white/80 select-none">
+                  0{active + 1}
+                </span>
+              </div>
+              <div className="p-6 flex flex-col justify-center relative">
+                <h3 className="text-xl text-ink-900 font-medium mb-3 font-display">
+                  {items[active].title}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-6">
+                  {items[active].description}
+                </p>
+                <Link
+                  href={items[active].ctaHref}
+                  className="inline-flex items-center gap-2 self-start rounded-full bg-navy-950 text-platinum-50 text-xs font-mono uppercase tracking-wider px-5 py-3 hover:bg-gold-500 hover:text-navy-950 transition"
+                >
+                  <span aria-hidden>→</span>
+                  {items[active].ctaLabel}
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex items-center justify-center gap-2 mt-5">
+          {items.map((item, i) => (
+            <button
+              key={item.title}
+              type="button"
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => goTo(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === active ? "w-6 bg-navy-950" : "w-2 bg-platinum-200"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
